@@ -1,0 +1,13 @@
+.bounce {
+  animation: bounceDown 2s ease-out infinite;
+  cursor: pointer;
+}
+@keyframes bounceDown {
+  0%,
+  100% {
+    transform: translate3d(0, -10px, 0);
+  }
+  50% {
+    transform: translate3d(0, 10px, 0);
+  }
+}
