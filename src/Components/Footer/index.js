@@ -61,8 +61,7 @@ const Footer = () => {
           <FooterCopyRight>
             <LinkViso>Designed & Built by Viso</LinkViso>
             <Logo>
-              ©
-              <img height="15px" width="70px" src={logo} alt="" />
+              © <img height="15px" width="70px" src={logo} alt="" />
             </Logo>
           </FooterCopyRight>
         </ContainerWidth>

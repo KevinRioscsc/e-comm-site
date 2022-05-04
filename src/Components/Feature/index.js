@@ -13,15 +13,26 @@ import {
 const Feature = ({ background, img, side, title, description, width }) => {
   const [transform, setTransform] = useState(80);
   const inputRef = useRef();
-  const scrollHandler = (_) => {
-    console.log(`${title} tops:`, inputRef.current.getBoundingClientRect().top);
+  const prev = useRef(0);
+  const scrollHandler = () => {
+    let top = inputRef.current.getBoundingClientRect().top + window.scrollY;
+    let bottomView = window.scrollY + 900;
+    let current = window.scrollY;
 
-    if (
-      window.scrollY >= inputRef.current.getBoundingClientRect().top &&
-      window.scrollY <=
-        parseInt(inputRef.current.getBoundingClientRect().top + 1000)
-    ) {
-      setTransform((prev) => prev - 1.4);
+    if (bottomView >= top && bottomView <= top + 500) {
+      if (current > prev.current) {
+        setTransform((prev) => prev - 1.4);
+        prev.current = current;
+      } else {
+        setTransform((prev) => prev + 1.4);
+        prev.current = current;
+      }
+    }
+    if (bottomView <= top) {
+      setTransform(80);
+    }
+    if (bottomView >= top + 500) {
+      setTransform(0);
     }
   };
   useEffect(() => {
@@ -36,8 +47,6 @@ const Feature = ({ background, img, side, title, description, width }) => {
         <FeatureImg
           ref={inputRef}
           style={{ transform: `translate3d(0px, ${transform}px, 0px)` }}
-          data-0-center-center="transform:translate3d(0, 0, 0);"
-          data-600-center-center="transform:translate3d(0, 80px, 0);"
         >
           <Img src={img} alt="img" width={width} />
         </FeatureImg>

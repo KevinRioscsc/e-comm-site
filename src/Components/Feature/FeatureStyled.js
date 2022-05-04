@@ -14,6 +14,7 @@ export const FeatureDiv = styled.div`
 export const FeatureImg = styled.div`
   width: 60%;
   text-align: center;
+  transition: transform 0.2s linear;
 `;
 export const Img = styled.img`
   max-width: 100%;

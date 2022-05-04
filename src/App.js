@@ -1,9 +1,12 @@
 import RoutesComponent from "./routes";
+import ProductInfo from "./Context/ProductContext";
 
 function App() {
   return (
     <>
-      <RoutesComponent />
+      <ProductInfo>
+        <RoutesComponent />
+      </ProductInfo>
     </>
   );
 }

@@ -16,24 +16,31 @@ import {
 } from "./HeroStyled";
 import "./Bounce.css";
 import { BsChevronDown } from "react-icons/bs";
-import { GiLaptop } from "react-icons/gi";
+import stand from "../../Images/stand.svg";
 import { FaRegEye } from "react-icons/fa";
 
 const Hero = () => {
   const [opacity, setOpacity] = useState(1);
-  const lastKnownScrollPosition = useRef(0);
+  const prev = useRef(0);
 
   function doSomething(e) {
     let currentPosition = window.scrollY;
+    let bottomView = window.scrollY + 900;
 
-    console.log("prev position", lastKnownScrollPosition.current);
-    console.log("current", currentPosition);
-    if (opacity > 0.0 && currentPosition > lastKnownScrollPosition.current) {
-      setOpacity((prev) => (prev - 0.1).toFixed(1));
-      lastKnownScrollPosition.current = currentPosition;
-    } else if (lastKnownScrollPosition.current > currentPosition) {
-      setOpacity((prev) => (parseFloat(prev) + 0.1).toFixed(1));
-      lastKnownScrollPosition.current = currentPosition;
+    if (currentPosition >= 0 && bottomView <= 1523) {
+      if (currentPosition > prev.current) {
+        setOpacity((prev) => (prev - 0.1).toFixed(1));
+        prev.current = currentPosition;
+      } else {
+        setOpacity((prev) => (parseFloat(prev) + 0.1).toFixed(1));
+        prev.current = currentPosition;
+      }
+    }
+    if (currentPosition === 0) {
+      setOpacity(1);
+    }
+    if (bottomView >= 1723) {
+      setOpacity(0);
     }
   }
 
@@ -53,7 +60,7 @@ const Hero = () => {
         </HeroDiv>
         <Claim>
           <ClaimContainer>
-            <GiLaptop size={142} />
+            <img src={stand} alt="stand" />
             <HeroTitle>
               Hand-made wooden stands <br /> for laptops & instruments.
             </HeroTitle>

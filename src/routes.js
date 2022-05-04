@@ -8,7 +8,7 @@ const RoutesComponent = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/products" element={<ProductPage />} />
+        <Route path="/products/:id" element={<ProductPage />} />
       </Routes>
     </BrowserRouter>
   );

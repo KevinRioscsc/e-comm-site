@@ -14,7 +14,6 @@ export const NavBarDiv = styled.nav`
   font-size: 14px;
   letter-spacing: 0.69px;
   line-height: 26px;
-  color: #fdfdfd;
 `;
 export const Logo = styled.div`
   margin-top: 28px;
@@ -37,9 +36,9 @@ export const NavBarLi = styled.li`
 `;
 export const NavBarLink = styled.a`
   text-decoration: none;
-
+  cursor: pointer;
   font-size: 15px;
-  color: #fdfdfd;
+  color: ${(props) => (props.dark ? "#4B4B4B" : " #fdfdfd")};
   &:after {
     content: "";
     position: absolute;
@@ -47,7 +46,7 @@ export const NavBarLink = styled.a`
     bottom: 0;
     width: 0;
     height: 2px;
-    background-color: #fdfdfd;
+    background-color: ${(props) => (props.dark ? "#4B4B4B" : " #fdfdfd")};
     transition: all 0.6s cubic-bezier(0.4, 0, 1, 1);
   }
   &:hover:after {

@@ -127,7 +127,7 @@ export const ButtonLeft = styled.div`
   padding: 18px 15px 17px;
   box-sizing: border-box;
 `;
-export const Link = styled.a`
+export const View = styled.a`
   color: #fdfdfd;
 `;
 export const BtnText = styled.span`
