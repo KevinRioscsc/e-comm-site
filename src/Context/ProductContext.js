@@ -1,4 +1,5 @@
 import React, { useContext, useState } from "react";
+import { productDetails } from "../Components/ProductHero/ProductDetail";
 
 const ProductInfo = React.createContext();
 
@@ -7,10 +8,13 @@ export const useProduct = () => {
 };
 
 const ProductContext = ({ children }) => {
-  const [product, setProduct] = useState("");
+  const [product, setProduct] = useState({});
 
   const productSelect = (productName) => {
-    setProduct(productName);
+    const foundProduct = productDetails.find(
+      (item) => item.productName === productName
+    );
+    setProduct(foundProduct);
   };
 
   const value = {

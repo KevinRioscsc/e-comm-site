@@ -26,7 +26,7 @@ import {
 } from "./ProductsStyled";
 
 const Products = () => {
-  const { productSelect, product } = useProduct();
+  const { productSelect } = useProduct();
   return (
     <div>
       <ProductsSection>
@@ -38,7 +38,12 @@ const Products = () => {
                 <ProductsContainer
                   key={`${product.productName} ${product.price}`}
                 >
-                  <Link to={`/products/${product.productName}`}>
+                  <Link
+                    onClick={() => {
+                      productSelect(product.productName);
+                    }}
+                    to={`/products/${product.productName}`}
+                  >
                     <Product>
                       <ProductOverlay>
                         <ProductUi>

@@ -14,6 +14,7 @@ export const ProductPanel = styled.div`
 export const Heading = styled.h2`
   margin-bottom: 5px;
   font-size: 48px;
+  margin-top: 0;
 `;
 export const ProductPrice = styled.div`
   margin-bottom: 11px;
@@ -38,6 +39,15 @@ export const QuantityNum = styled.div`
   display: inline-block;
   width: 60px;
   position: relative;
+  &::before {
+    content: " ";
+    display: table;
+  }
+  &::after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
 `;
 export const Quantity = styled.input`
   display: inline-block;
@@ -47,41 +57,51 @@ export const Quantity = styled.input`
   height: auto;
   font-size: 28px;
   color: #4b4b4b;
+  background: transparent;
 `;
 export const QuantityPlusLess = styled.div`
   display: inline-block;
   width: 10px;
   position: absolute;
   right: 0;
-  top: 12px;
+  top: 6px;
 `;
 export const QuantityPlus = styled.span`
-  margin-bottom: 8px;
   display: block;
   width: 10px;
   height: 10px;
   cursor: pointer;
+  background-image: url(${(props) => props.img});
+  margin-bottom: 8px;
 `;
 export const PlusImg = styled.img``;
-export const QuantityLess = styled.div`
+export const QuantityLess = styled.span`
   display: block;
   width: 10px;
-  height: 10px;
+  height: 2px;
   cursor: pointer;
+  background-image: url(${(props) => props.img});
+`;
+export const ArrowImg = styled.img`
+  margin-left: 10px;
+  transform: ${(props) => (props.onActive ? " rotate(180deg)" : "0")};
+  transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
 `;
 export const Btn = styled.div`
   margin-bottom: 23px;
   opacity: 0.5;
   color: #4b4b4b;
-  border-color: #4b4b4b;
+  border: 2px solid #4b4b4b;
   background-color: transparent;
   border-radius: 4px;
   vertical-align: middle;
+  width: fit-content;
   padding: 15px 20px;
   font-size: 20px;
 `;
 export const BtnText = styled.span`
   color: #4b4b4b;
+  margin-right: 10px;
 `;
 export const CartImg = styled.img``;
 export const InfoShipping = styled.div`
@@ -90,6 +110,7 @@ export const InfoShipping = styled.div`
 export const TabList = styled.ul`
   font-size: 20px;
   list-style: none;
+  padding: 0;
 `;
 export const Tab = styled.li`
   margin-right: 30px;
@@ -98,12 +119,22 @@ export const Tab = styled.li`
   display: inline-block;
   text-decoration: none;
   box-sizing: border-box;
+  &::after {
+    content: "";
+    display: block;
+    width: ${(props) => (props.onActive ? "100%" : "0")};
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2px;
+    background-color: #4b4b4b;
+    transition: width 0.3s ease-in-out;
+  }
 `;
 export const ShippingDetails = styled.div`
   margin-top: 30px;
-  display: none;
-  opacity: 0;
-  -webkit-transition: opacity 0.3s ease-in-out;
+  display: ${(props) => (props.onActive ? "unset" : "none")};
+  opacity: ${(props) => (props.onActive ? "1" : "0")};
   transition: opacity 0.3s ease-in-out;
 `;
 export const Descr = styled.p`
@@ -111,8 +142,10 @@ export const Descr = styled.p`
 `;
 export const ProductShare = styled.ul`
   list-style: none;
+  padding: 0;
 `;
 export const Li = styled.li`
   display: inline-block;
   margin-right: 20px;
+  cursor: pointer;
 `;
