@@ -10,7 +10,7 @@ import {
   FeatureDescr,
 } from "./FeatureStyled";
 
-const Feature = ({ background, img, side, title, description, width }) => {
+const Feature = ({ background, img, side, title, description, width, id }) => {
   const [transform, setTransform] = useState(80);
   const inputRef = useRef();
   const prev = useRef(0);
@@ -43,7 +43,7 @@ const Feature = ({ background, img, side, title, description, width }) => {
   }, []);
   return (
     <>
-      <FeatureDiv color={background} side={side}>
+      <FeatureDiv color={background} side={side} id={id}>
         <FeatureImg
           ref={inputRef}
           style={{ transform: `translate3d(0px, ${transform}px, 0px)` }}

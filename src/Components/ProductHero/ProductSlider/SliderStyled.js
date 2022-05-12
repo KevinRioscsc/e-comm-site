@@ -6,6 +6,15 @@ export const Slider = styled.ul`
   margin: 0;
   list-style: none;
   position: relative;
+
+  @media screen and (max-width: 640px) {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    backface-visibility: hidden;
+    z-index: -99;
+  }
 `;
 export const SliderLi = styled.li`
   position: absolute;
@@ -28,6 +37,9 @@ export const SliderLeft = styled.div`
   background: url(${(props) => props.img}) center no-repeat;
   transform: translateY(-50%) rotate(180deg);
   left: 15px;
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 export const SLiderRight = styled.div`
   transform: translateY(-50%);
@@ -40,6 +52,9 @@ export const SLiderRight = styled.div`
   z-index: 4;
   background: url(${(props) => props.img}) center no-repeat;
   cursor: pointer;
+  @media screen and (max-width: 640px) {
+    display: none;
+  }
 `;
 export const ProductImg = styled.div`
   width: 100%;

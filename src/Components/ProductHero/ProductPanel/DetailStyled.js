@@ -10,6 +10,20 @@ export const ProductPanel = styled.div`
   float: left;
   width: 31.6239316239%;
   margin-right: 0;
+  @media screen and (max-width: 970px) {
+    float: left;
+    width: 48.7179487179%;
+    margin-right: 0;
+  }
+  @media screen and (max-width: 640px) {
+    max-width: 100%;
+    width: 100%;
+    padding: 30px 15px 30px 30px;
+    bottom: 0;
+    left: 0;
+    right: unset;
+    top: unset;
+  }
 `;
 export const Heading = styled.h2`
   margin-bottom: 5px;
@@ -58,6 +72,9 @@ export const Quantity = styled.input`
   font-size: 28px;
   color: #4b4b4b;
   background: transparent;
+  &::focus {
+    border: 0;
+  }
 `;
 export const QuantityPlusLess = styled.div`
   display: inline-block;

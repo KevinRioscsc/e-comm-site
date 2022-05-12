@@ -1,22 +1,17 @@
-import React, { useEffect } from "react";
-import NavBar from "../Components/NavBar";
+import React from "react";
+import NavBarAnimations from "../Components/NavBarAnimations";
 import Footer from "../Components/Footer";
-import { useParams } from "react-router-dom";
 import ProductHero from "../Components/ProductHero";
 import Products from "../Components/Products";
+import { useParams } from "react-router-dom";
 
 const ProductPage = () => {
-  const params = useParams();
-
-  useEffect(() => {
-    console.log(params.id);
-  }, []);
-
+  const { id } = useParams();
   return (
     <>
-      <NavBar dark={true} />
+      <NavBarAnimations dark={true} />
       <ProductHero />
-      <Products />
+      <Products other product={id} id={"products"} />
       <Footer />
     </>
   );

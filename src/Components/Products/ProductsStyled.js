@@ -4,6 +4,7 @@ export const ProductsSection = styled.div`
   padding: 112px 0 10px;
   background-color: #6aaebf;
   text-align: center;
+  z-index: 99;
 `;
 export const ContainerWidth = styled.div`
   max-width: 1200px;
@@ -17,7 +18,11 @@ export const ContainerWidth = styled.div`
 export const Header = styled.h1`
   margin-bottom: 100px;
   color: #fdfdfd;
-  font-size: 52px;
+  font-size: ${(props) => (props.other ? "32px" : "52px")};
+  @media screen and (max-width: 640px) {
+    margin-bottom: 30px;
+    font-size: 32px;
+  }
 `;
 export const ProductsAllign = styled.div`
   display: flex;
@@ -30,6 +35,12 @@ export const ProductsContainer = styled.div`
   float: left;
   margin-bottom: 100px;
   position: relative;
+  @media screen and (max-width: 970px) {
+    width: 100%;
+  }
+  @media screen and (max-width: 640px) {
+    margin-bottom: 30px;
+  }
 `;
 export const Product = styled.div`
   width: 379px;
@@ -40,6 +51,9 @@ export const Product = styled.div`
   position: relative;
   box-sizing: border-box;
   cursor: pointer;
+  @media screen and (max-width: 640px) {
+    width: 100%;
+  }
 `;
 export const ProductOverlay = styled.div`
   position: absolute;
@@ -129,6 +143,9 @@ export const ButtonLeft = styled.div`
 `;
 export const View = styled.a`
   color: #fdfdfd;
+  @media screen and (max-width: 640px) {
+    border-right: 0;
+  }
 `;
 export const BtnText = styled.span`
   display: inline-block;

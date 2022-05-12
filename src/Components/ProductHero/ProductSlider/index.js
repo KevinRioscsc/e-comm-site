@@ -13,10 +13,18 @@ const ProductSlider = () => {
   const [current, setCurrent] = useState(0);
 
   const nextSlide = () => {
-    setCurrent(current === length ? 0 : current + 1);
+    if (current > length) {
+      setCurrent(0);
+    } else {
+      setCurrent(current === length ? 0 : current + 1);
+    }
   };
   const prevSlide = () => {
-    setCurrent(current === 0 ? length : current - 1);
+    if (current > length) {
+      setCurrent(0);
+    } else {
+      setCurrent(current === 0 ? length : current - 1);
+    }
   };
 
   console.log(current);

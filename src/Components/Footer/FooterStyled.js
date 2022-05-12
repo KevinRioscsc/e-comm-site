@@ -21,14 +21,28 @@ export const ContainerWidth = styled.div`
     content: " ";
     display: table;
   }
+  &::after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
 `;
 export const FooterFlex = styled.div`
   display: flex;
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+  }
 `;
 export const FooterNewsLetter = styled.div`
   display: inline-block;
   width: 31.6239316239%;
   margin-right: 2.5641025641%;
+  @media screen and (max-width: 800px) {
+    float: left;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
 `;
 export const Title = styled.h4`
   margin-bottom: 30px;
@@ -67,6 +81,12 @@ export const FooterFollow = styled.div`
   display: inline-block;
   width: 31.6239316239%;
   margin-right: 2.5641025641%;
+  @media screen and (max-width: 800px) {
+    float: left;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
 `;
 export const FollowList = styled.ul`
   list-style: none;
@@ -81,6 +101,12 @@ export const FooterCustomer = styled.div`
 
   width: 31.6239316239%;
   margin-right: 0;
+  @media screen and (max-width: 800px) {
+    float: left;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
 `;
 export const ServiceList = styled.ul`
   font-size: 14px;
@@ -135,6 +161,12 @@ export const FooterCopyRight = styled.div`
   width: 100%;
   margin-top: 90px;
   display: inline-block;
+  @media screen and (max-width: 800px) {
+    float: left;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 60px;
+  }
 `;
 export const Logo = styled.div`
   margin-left: -10px;

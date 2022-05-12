@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as LinkS } from "react-scroll";
 
 export const NavBarDiv = styled.nav`
   height: 50px;
@@ -29,12 +30,15 @@ export const NavBarUl = styled.ul`
   padding-top: 28px;
   margin: 0;
   gap: 80px;
+  @media screen and (max-width: 840px) {
+    display: none;
+  }
 `;
 export const NavBarLi = styled.li`
   list-style: none;
   position: relative;
 `;
-export const NavBarLink = styled.a`
+export const NavBarLink = styled(LinkS)`
   text-decoration: none;
   cursor: pointer;
   font-size: 15px;

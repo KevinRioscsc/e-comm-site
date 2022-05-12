@@ -49,7 +49,7 @@ const ProductDetail = () => {
         <ProductQuantity>
           <QuantityWord>Quantity</QuantityWord>
           <QuantityNum>
-            <Quantity placeholder={quantity} />
+            <Quantity type={"text"} placeholder={quantity} />
             <QuantityPlusLess>
               <QuantityPlus
                 onClick={() => setQuantity((prev) => prev + 1)}

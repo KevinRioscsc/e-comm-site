@@ -11,6 +11,7 @@ export const OverlayDiv = styled.div`
   top: 0;
   left: 0;
   flex: 1 0 auto;
+  z-index: 7;
 
   -webkit-transform: none;
   transform: none;

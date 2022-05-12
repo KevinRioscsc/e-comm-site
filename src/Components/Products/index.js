@@ -25,61 +25,63 @@ import {
   View,
 } from "./ProductsStyled";
 
-const Products = () => {
+const Products = ({ other, product, id }) => {
   const { productSelect } = useProduct();
   return (
-    <div>
-      <ProductsSection>
+    <>
+      <ProductsSection id={id}>
         <ContainerWidth>
-          <Header>The Products</Header>
+          <Header other={other}>
+            {other ? "Other Products" : "The Products"}
+          </Header>
           <ProductsAllign>
-            {data.map((product) => {
-              return (
-                <ProductsContainer
-                  key={`${product.productName} ${product.price}`}
-                >
-                  <Link
-                    onClick={() => {
-                      productSelect(product.productName);
-                    }}
-                    to={`/products/${product.productName}`}
+            {data
+              .filter((item) => item.productName !== product)
+              .map((product) => {
+                return (
+                  <ProductsContainer
+                    key={`${product.productName} ${product.price}`}
                   >
-                    <Product>
-                      <ProductOverlay>
-                        <ProductUi>
-                          <ProductInfo>
-                            {product.productName} ·{" "}
-                            <ProductCurrency>$ </ProductCurrency>{" "}
-                            {product.price}
-                          </ProductInfo>
-                          <ProductButtons>
-                            <ButtonLeft>
-                              <View>
-                                <BtnText>View More</BtnText>
-                                <Img src={eye} />
-                              </View>
-                            </ButtonLeft>
-                            <ButtonRight>
-                              <View>
-                                <BtnText>Out of Stock</BtnText>
-                                <Img src={cart} />
-                              </View>
-                            </ButtonRight>
-                          </ProductButtons>
-                        </ProductUi>
-                      </ProductOverlay>
-                      <ProductLink>
-                        <ProductImg src={product.productImg} />
-                      </ProductLink>
-                    </Product>
-                  </Link>
-                </ProductsContainer>
-              );
-            })}
+                    <Link
+                      onClick={() => productSelect(product.productName)}
+                      to={`/products/${product.productName}`}
+                    >
+                      <Product>
+                        <ProductOverlay>
+                          <ProductUi>
+                            <ProductInfo>
+                              {product.productName} ·{" "}
+                              <ProductCurrency>$ </ProductCurrency>{" "}
+                              {product.price}
+                            </ProductInfo>
+                            <ProductButtons>
+                              <ButtonLeft>
+                                <View>
+                                  <BtnText>View More</BtnText>
+                                  <Img src={eye} />
+                                </View>
+                              </ButtonLeft>
+                              <ButtonRight>
+                                <View>
+                                  <BtnText>Out of Stock</BtnText>
+                                  <Img src={cart} />
+                                </View>
+                              </ButtonRight>
+                            </ProductButtons>
+                          </ProductUi>
+                        </ProductOverlay>
+                        <ProductLink>
+                          <ProductImg src={product.productImg} />
+                        </ProductLink>
+                      </Product>
+                    </Link>
+                  </ProductsContainer>
+                );
+              })}
           </ProductsAllign>
         </ContainerWidth>
       </ProductsSection>
-    </div>
+    </>
   );
 };
 

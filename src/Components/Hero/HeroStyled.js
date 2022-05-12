@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link as LinkS } from "react-scroll";
 
 export const HeroDiv = styled.div`
   background-image: url(${(props) => props.img});
@@ -7,7 +8,7 @@ export const HeroDiv = styled.div`
   background-repeat: no-repeat;
   height: 100vh;
   width: 100%;
-
+  z-index: 1;
   position: relative;
 `;
 
@@ -35,7 +36,7 @@ export const BackgroundBottom = styled.div`
   background-color: #c3ada5;
   z-index: -2;
 `;
-export const ScrollDown = styled.div`
+export const ScrollDown = styled(LinkS)`
   position: absolute;
   bottom: 30px;
   left: 0;
@@ -61,8 +62,11 @@ export const HeroTitle = styled.h1`
   margin-bottom: 24px;
   font-size: 52px;
   vertical-align: baseline;
+  @media screen and (max-width: 640px) {
+    font-size: 32px;
+  }
 `;
-export const Button = styled.a`
+export const Button = styled(LinkS)`
   text-decoration: none;
   color: #fdfdfd;
   border-color: #fdfdfd;

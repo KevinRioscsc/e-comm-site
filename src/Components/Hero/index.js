@@ -54,11 +54,11 @@ const Hero = () => {
     <>
       <HeroSection>
         <HeroDiv img={heroImg}>
-          <ScrollDown>
+          <ScrollDown to="claim" smooth={true} duration={500}>
             <BsChevronDown className="bounce" color="white" size={59} />
           </ScrollDown>
         </HeroDiv>
-        <Claim>
+        <Claim id="claim">
           <ClaimContainer>
             <img src={stand} alt="stand" />
             <HeroTitle>
@@ -67,7 +67,7 @@ const Hero = () => {
             <HeroTag>
               Designed by musicians. <br /> Built to last.
             </HeroTag>
-            <Button href="#">
+            <Button to="products" smooth={true} duration={500}>
               <BtnSpan>View our products</BtnSpan>
               <FaRegEye style={{ verticalAlign: "middle " }} />
             </Button>

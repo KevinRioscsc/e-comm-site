@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { productDetails } from "../Components/ProductHero/ProductDetail";
 
 const ProductInfo = React.createContext();
@@ -16,7 +16,12 @@ const ProductContext = ({ children }) => {
     );
     setProduct(foundProduct);
   };
-
+  useEffect(() => {
+    const foundProduct = productDetails.find(
+      (item) => item.productName === localStorage.getItem("productName")
+    );
+    setProduct(foundProduct);
+  }, []);
   const value = {
     product,
     productSelect,
