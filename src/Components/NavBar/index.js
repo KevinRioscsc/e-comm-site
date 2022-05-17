@@ -48,10 +48,10 @@ const NavBar = ({ toggle, toggleSignIn, dark }) => {
             </NavBarLink>
           </NavBarLi>
         </NavBarUl>
-        <div onClick={() => setHam((prev) => !prev)}>
-          <HamBurger toggle={toggleHam} dark={dark} />
-        </div>
       </NavBarDiv>
+      <div onClick={() => setHam((prev) => !prev)}>
+        <HamBurger toggle={toggleHam} dark={dark} />
+      </div>
 
       <Mobile toggle={toggle} toggleSignIn={toggleSignIn} open={toggleHam} />
     </>

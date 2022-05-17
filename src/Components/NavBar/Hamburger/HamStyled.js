@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const Icon = styled.div`
-  position: relative;
+  position: fixed;
+  right: 0;
   width: 30px;
   height: 22px;
   margin-top: 27px;
